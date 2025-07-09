@@ -44,10 +44,23 @@
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     letter-spacing: 0.025em;
+    /* Custom cinematic scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--gta-pink) var(--gta-black);
+  }
+
+  body::-webkit-scrollbar {
+    width: 8px;
+    background: var(--gta-black);
+  }
+  body::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--gta-pink) 0%, var(--gta-orange) 100%);
+    border-radius: 8px;
   }
 
   html {
     scroll-behavior: smooth;
+    /* For inertia-based smooth scrolling, a library will be added in JS */
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -142,4 +155,15 @@
     @apply w-full h-px;
     background: linear-gradient(90deg, transparent 0%, var(--gta-pink) 50%, transparent 100%);
   }
+}
+
+/* Film grain utility */
+.film-grain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  opacity: 0.18;
+  mix-blend-mode: overlay;
 }
