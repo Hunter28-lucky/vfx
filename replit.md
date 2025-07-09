@@ -1,98 +1,22 @@
-# Personal Portfolio Website - Replit MD
+# Static Frontend Project
 
-## Overview
+This project is now a static frontend-only application, ready for deployment on Vercel or any static hosting provider. All backend, server, and database code has been removed.
 
-This is a cinematic personal portfolio website inspired by GTA VI's design aesthetic. The application features immersive scrolling experiences, custom imagery, and gaming-inspired visual elements to create an engaging digital showcase. Built as a full-stack application with a React frontend and Express backend, it's designed to present personal and professional information in a visually compelling way.
+## Development
 
-## System Architecture
+- Run `npm install` to install dependencies.
+- Use `npm run dev` to start the Vite development server.
+- Use `npm run build` to build the static site for production.
+- Use `npm run preview` to locally preview the production build.
 
-### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Styling**: Tailwind CSS with custom GTA VI-inspired color scheme and animations
-- **UI Components**: Radix UI components via shadcn/ui for consistent design system
-- **Routing**: Wouter for lightweight client-side routing
-- **State Management**: TanStack Query for server state management
-- **Animations**: Framer Motion for smooth, cinematic transitions and scroll-based effects
-- **Build Tool**: Vite for fast development and optimized builds
+## Deployment
 
-### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **Language**: TypeScript with ES modules
-- **Database**: PostgreSQL with Drizzle ORM
-- **Database Provider**: Neon Database (serverless PostgreSQL)
-- **Session Management**: Ready for implementation with connect-pg-simple
-- **Development**: Hot reloading with Vite integration in development mode
+- Deploy the contents of the `dist/public` directory to Vercel or any static hosting provider.
 
-## Key Components
+## Tech Stack
+- React
+- Vite
+- Tailwind CSS
+- Radix UI
 
-### Frontend Components
-- **Navigation**: Fixed navigation with smooth scrolling to sections
-- **Hero Section**: Full-screen parallax hero with animated text and backgrounds
-- **About Section**: Interactive profile section with gaming-inspired cards
-- **Journey Section**: Timeline-based storytelling with image galleries
-- **Gallery Section**: Image showcase with hover effects
-- **Stats Section**: Animated counters and achievement displays
-- **Contact Section**: Contact form and social media integration
-- **Footer**: Branded footer with gaming references
-
-### Backend Components
-- **Storage Interface**: Abstracted storage layer with in-memory implementation
-- **Route System**: Modular route registration system
-- **User Management**: Basic user schema with authentication preparation
-- **Database Schema**: Drizzle-based schema definitions in shared directory
-
-## Data Flow
-
-1. **Client Requests**: React application makes API calls through TanStack Query
-2. **API Layer**: Express server handles requests with prefixed `/api` routes
-3. **Storage Layer**: Requests are processed through the storage interface
-4. **Database**: PostgreSQL database accessed via Drizzle ORM
-5. **Response**: Data flows back through the same layers with proper error handling
-
-## External Dependencies
-
-### UI and Styling
-- **Radix UI**: Comprehensive component library for accessible UI elements
-- **Framer Motion**: Animation library for smooth transitions and scroll effects
-- **Tailwind CSS**: Utility-first CSS framework with custom GTA VI theme
-- **Lucide Icons**: Consistent icon system throughout the application
-
-### Backend Services
-- **Neon Database**: Serverless PostgreSQL hosting
-- **Drizzle ORM**: Type-safe database operations
-- **Express.js**: Web application framework
-
-### Development Tools
-- **Vite**: Build tool with hot module replacement
-- **TypeScript**: Type safety across the entire application
-- **ESBuild**: Fast JavaScript bundler for production builds
-
-## Deployment Strategy
-
-### Development
-- **Local Development**: Vite dev server with Express backend
-- **Hot Reloading**: Automatic refresh for both frontend and backend changes
-- **Environment Variables**: DATABASE_URL required for database connection
-
-### Production Build
-- **Frontend**: Vite builds static assets to `dist/public`
-- **Backend**: ESBuild bundles server code to `dist/index.js`
-- **Deployment**: Single command deployment with `npm run build && npm start`
-
-### Database Management
-- **Migrations**: Drizzle-kit handles schema migrations
-- **Schema**: Centralized schema definitions in `shared/schema.ts`
-- **Environment**: Requires PostgreSQL database URL for production
-
-## Changelog
-
-```
-Changelog:
-- July 07, 2025. Initial setup
-```
-
-## User Preferences
-
-```
-Preferred communication style: Simple, everyday language.
-```
+No backend or server code is present. All features are implemented client-side.
