@@ -50,13 +50,12 @@ export default function JourneySection() {
           className="text-center mb-20"
         >
           <h2 className="gta-hero-title text-6xl md:text-8xl mb-6">
-            <span className="text-white">THE</span>
-            <br />
-            <span className="gta-gradient-text">JOURNEY</span>
+            <span className="text-white">My VFX Journey & Experience</span>
           </h2>
           <p className="gta-subtitle text-gray-400">
             Every legend has a beginning
           </p>
+          <a href="#contact" className="gta-button mt-4 inline-block">Contact Me</a>
         </motion.div>
         
         <div className="max-w-7xl mx-auto">

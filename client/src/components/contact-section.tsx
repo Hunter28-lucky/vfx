@@ -38,13 +38,12 @@ export default function ContactSection() {
           className="text-center mb-20"
         >
           <h2 className="gta-hero-title text-6xl md:text-8xl mb-6">
-            <span className="text-white">JOIN THE</span>
-            <br />
-            <span className="gta-gradient-text">ADVENTURE</span>
+            <span className="text-white">Contact the Cinematic VFX Editor</span>
           </h2>
           <p className="gta-subtitle text-gray-400">
             Ready to create something extraordinary?
           </p>
+          <a href="#journey" className="gta-button mt-4 inline-block">See My Journey</a>
         </motion.div>
         
         <div className="max-w-4xl mx-auto">

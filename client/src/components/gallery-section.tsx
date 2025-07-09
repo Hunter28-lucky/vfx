@@ -69,13 +69,12 @@ export default function GallerySection() {
           className="text-center mb-20"
         >
           <h2 className="gta-hero-title text-6xl md:text-8xl mb-6">
-            <span className="text-white">DIGITAL</span>
-            <br />
-            <span className="gta-gradient-text">SHOWCASE</span>
+            <span className="text-white">VFX Project Gallery</span>
           </h2>
           <p className="gta-subtitle text-gray-400">
             A collection of my finest work
           </p>
+          <a href="#about" className="gta-button mt-4 inline-block">About the Editor</a>
         </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">

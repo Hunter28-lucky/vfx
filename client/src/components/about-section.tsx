@@ -32,10 +32,9 @@ export default function AboutSection() {
           className="text-center mb-20"
         >
           <h2 className="gta-hero-title text-6xl md:text-8xl mb-6">
-            <span className="text-white">MEET THE</span>
-            <br />
-            <span className="gta-gradient-text">DEVELOPER</span>
+            <span className="text-white">About the Cinematic VFX Editor</span>
           </h2>
+          <a href="#gallery" className="gta-button mt-4 inline-block">See My VFX Gallery</a>
         </motion.div>
         
         {/* Content Grid */}

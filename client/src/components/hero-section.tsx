@@ -67,22 +67,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.8, ease: 'easeOut' }}
           >
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="block"
-            >
-              MY DIGITAL
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="block gta-gradient-text"
-            >
-              JOURNEY
-            </motion.span>
+            Cinematic VFX Portfolio – Your Name
           </motion.h1>
 
           <motion.div
