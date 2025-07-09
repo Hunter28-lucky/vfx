@@ -1,4 +1,3 @@
-// @ts-ignore
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -19,17 +18,20 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // @ts-ignore
-      "@": path.resolve(process.cwd(), "client", "src"),
-      // @ts-ignore
-      "@assets": path.resolve(process.cwd(), "attached_assets"),
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  // @ts-ignore
-  root: path.resolve(process.cwd(), "client"),
+  root: path.resolve(import.meta.dirname, "client"),
   build: {
-    // @ts-ignore
-    outDir: path.resolve(process.cwd(), "dist"),
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+  },
+  server: {
+    fs: {
+      strict: true,
+      deny: ["**/.*"],
+    },
   },
 });
