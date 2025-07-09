@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import marioImage from "@assets/mario nintendo_1751907476709.png";
-import sakuraImage from "@assets/sakura road 1_1751907476709.jpg";
-import cityFogImage from "@assets/city fog_1751907476709.png";
 
 export default function JourneySection() {
   const ref = useRef(null);
@@ -16,7 +13,7 @@ export default function JourneySection() {
       title: "The Genesis",
       subtitle: "Where it all began",
       description: "Like a character spawning into a vast open world, my journey into development started with pure curiosity and determination. The first lines of code were written, setting the foundation for everything that would follow.",
-      image: marioImage,
+      symbol: "</>" ,
       color: "from-purple-600 to-pink-600"
     },
     {
@@ -25,7 +22,7 @@ export default function JourneySection() {
       title: "Level Up",
       subtitle: "Skills unlocked",
       description: "The path became clearer as I navigated through complex challenges and emerged stronger. Each project was a new mission completed, each technology mastered a new skill unlocked.",
-      image: sakuraImage,
+      symbol: "⚡",
       color: "from-pink-600 to-orange-600"
     },
     {
@@ -34,7 +31,7 @@ export default function JourneySection() {
       title: "The Present",
       subtitle: "Writing the future",
       description: "Now operating at peak performance, creating digital experiences that push boundaries. The fog of uncertainty has lifted, revealing endless possibilities ahead.",
-      image: cityFogImage,
+      symbol: "🚀",
       color: "from-orange-600 to-red-600"
     }
   ];
@@ -99,18 +96,35 @@ export default function JourneySection() {
                     </motion.div>
                   </div>
                   
-                  {/* Image */}
+                  {/* Icon Visual */}
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <motion.div
                       whileHover={{ scale: 1.05 }}
-                      className="gta-image-container rounded-lg overflow-hidden h-80"
+                      className="flex items-center justify-center h-80 rounded-lg overflow-hidden relative"
                     >
-                      <img 
-                        src={chapter.image} 
-                        alt={chapter.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-br ${chapter.color} opacity-20`}></div>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${chapter.color} opacity-10`}></div>
+                      <div className={`absolute inset-0 bg-gradient-to-t from-black/50 to-transparent`}></div>
+                                             <motion.div
+                         animate={{ 
+                           y: [0, -10, 0],
+                           scale: [1, 1.1, 1]
+                         }}
+                         transition={{ 
+                           duration: 3,
+                           repeat: Infinity,
+                           ease: "easeInOut"
+                         }}
+                         className="relative z-10"
+                       >
+                         <div 
+                           className={`text-8xl font-bold bg-gradient-to-r ${chapter.color} bg-clip-text text-transparent`}
+                           style={{
+                             filter: 'drop-shadow(0 0 20px rgba(255, 0, 102, 0.3))'
+                           }}
+                         >
+                           {chapter.symbol}
+                         </div>
+                       </motion.div>
                     </motion.div>
                   </div>
                 </motion.div>

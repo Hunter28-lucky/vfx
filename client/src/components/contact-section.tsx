@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram } from "lucide-react";
-import cityscapeImage from "@assets/cityscape day_1751907476709.jpg";
 
 export default function ContactSection() {
   const ref = useRef(null);
@@ -17,17 +16,9 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-32 bg-black">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url(${cityscapeImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black"></div>
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-900/10 via-black to-orange-900/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/90 to-black"></div>
       
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
