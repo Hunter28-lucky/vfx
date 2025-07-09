@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { name: "Journey", id: "journey" },
   { name: "Portfolio", id: "gallery" },
   { name: "Contact", id: "contact" },
+  { name: "Admin", id: "admin", isAdmin: true },
 ];
 
 export default function Navigation() {
@@ -94,17 +95,27 @@ export default function Navigation() {
               <NavigationMenuList>
                 {NAV_ITEMS.map((item) => (
                   <NavigationMenuItem key={item.id}>
-                    <NavigationMenuLink
-                      asChild
-                      className={`px-4 py-2 rounded-md transition-all duration-200 font-medium text-base cursor-pointer relative overflow-hidden ${
-                        active === item.id
-                          ? "gta-gradient-text bg-white/10 shadow-md after:absolute after:inset-0 after:bg-gradient-to-r after:from-pink-500/20 after:to-purple-600/20 after:rounded-md after:blur-sm"
-                          : "text-gray-200 hover:bg-white/10 hover:text-white"
-                      }`}
-                      onClick={() => scrollToSection(item.id)}
-                    >
-                      <span>{item.name}</span>
-                    </NavigationMenuLink>
+                    {item.isAdmin ? (
+                      <NavigationMenuLink
+                        asChild
+                        className="px-4 py-2 rounded-md transition-all duration-200 font-medium text-base cursor-pointer relative overflow-hidden text-pink-400 hover:text-white hover:bg-pink-600/20 border border-pink-600/20"
+                        href="/admin"
+                      >
+                        <span>{item.name}</span>
+                      </NavigationMenuLink>
+                    ) : (
+                      <NavigationMenuLink
+                        asChild
+                        className={`px-4 py-2 rounded-md transition-all duration-200 font-medium text-base cursor-pointer relative overflow-hidden ${
+                          active === item.id
+                            ? "gta-gradient-text bg-white/10 shadow-md after:absolute after:inset-0 after:bg-gradient-to-r after:from-pink-500/20 after:to-purple-600/20 after:rounded-md after:blur-sm"
+                            : "text-gray-200 hover:bg-white/10 hover:text-white"
+                        }`}
+                        onClick={() => scrollToSection(item.id)}
+                      >
+                        <span>{item.name}</span>
+                      </NavigationMenuLink>
+                    )}
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -143,20 +154,31 @@ export default function Navigation() {
                 <X size={36} />
               </button>
               <div className="flex flex-col items-center gap-6 mt-12">
-                {NAV_ITEMS.map((item) => (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`text-3xl font-bold px-6 py-3 rounded-lg transition-all duration-200 w-full text-center ${
-                      active === item.id
-                        ? "gta-gradient-text bg-white/10 shadow-lg"
-                        : "text-gray-200 hover:bg-white/10 hover:text-white"
-                    }`}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    {item.name}
-                  </motion.button>
-                ))}
+                {NAV_ITEMS.map((item) =>
+                  item.isAdmin ? (
+                    <motion.a
+                      key={item.id}
+                      href="/admin"
+                      className="text-3xl font-bold px-6 py-3 rounded-lg transition-all duration-200 w-full text-center text-pink-400 hover:text-white hover:bg-pink-600/20 border border-pink-600/20"
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ) : (
+                    <motion.button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`text-3xl font-bold px-6 py-3 rounded-lg transition-all duration-200 w-full text-center ${
+                        active === item.id
+                          ? "gta-gradient-text bg-white/10 shadow-lg"
+                          : "text-gray-200 hover:bg-white/10 hover:text-white"
+                      }`}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      {item.name}
+                    </motion.button>
+                  )
+                )}
                 <Button
                   className="mt-8 w-full px-8 py-4 text-lg font-bold shadow-lg bg-gradient-to-r from-pink-500 to-purple-600 border-0 hover:scale-105 transition-transform"
                   onClick={() => scrollToSection("contact")}
