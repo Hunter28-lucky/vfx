@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
+import carImage from "@assets/car_1751907476708.jpg";
 
 export default function HeroSection() {
   const [currentDate, setCurrentDate] = useState("");
@@ -23,50 +24,17 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Simple animated background */}
+    <section id="hero" className="relative h-screen overflow-hidden bg-black">
+      {/* Static Image Background */}
       <div className="absolute inset-0 z-0">
-        {/* Modern gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-black to-orange-900/20" />
-        {/* Subtle animated particles */}
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute w-2 h-2 bg-pink-500/20 rounded-full top-1/4 left-1/4"
-            animate={{ 
-              y: [-20, 20, -20],
-              opacity: [0.2, 0.6, 0.2]
-            }}
-            transition={{ 
-              duration: 4,
-              repeat: Infinity,
-              delay: 0
-            }}
-          />
-          <motion.div
-            className="absolute w-1 h-1 bg-orange-500/30 rounded-full top-1/3 right-1/4"
-            animate={{ 
-              y: [20, -20, 20],
-              opacity: [0.1, 0.5, 0.1]
-            }}
-            transition={{ 
-              duration: 5,
-              repeat: Infinity,
-              delay: 1
-            }}
-          />
-          <motion.div
-            className="absolute w-1.5 h-1.5 bg-pink-500/15 rounded-full bottom-1/3 left-1/3"
-            animate={{ 
-              y: [-15, 15, -15],
-              opacity: [0.3, 0.7, 0.3]
-            }}
-            transition={{ 
-              duration: 3,
-              repeat: Infinity,
-              delay: 2
-            }}
-          />
-        </div>
+        <img 
+          src={carImage} 
+          alt="Hero Background" 
+          className="w-full h-full object-cover"
+          style={{ filter: 'brightness(0.4) contrast(1.1)' }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
       </div>
 
       {/* Logo and Title */}
