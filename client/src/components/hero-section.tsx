@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import carImage from "@assets/car_1751907476708.jpg";
 
 export default function HeroSection() {
   const [currentDate, setCurrentDate] = useState("");
@@ -25,16 +24,21 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative h-screen overflow-hidden bg-black">
-      {/* Static Image Background */}
+      {/* Spline 3D Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={carImage} 
-          alt="Hero Background" 
-          className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.4) contrast(1.1)' }}
+        {/* @ts-ignore */}
+        <spline-viewer 
+          url="https://prod.spline.design/XVb4L3YwyNlw6ppz/scene.splinecode"
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0
+          }}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
       </div>
 
       {/* Logo and Title */}
