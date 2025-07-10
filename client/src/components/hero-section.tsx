@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import carImage from "@assets/car_1751907476708.jpg";
+
+// Declare custom spline-viewer element for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        url?: string;
+        style?: React.CSSProperties;
+      };
+    }
+  }
+}
 
 export default function HeroSection() {
   const [currentDate, setCurrentDate] = useState("");
@@ -14,6 +25,19 @@ export default function HeroSection() {
       year: 'numeric'
     };
     setCurrentDate(date.toLocaleDateString('en-US', options));
+
+    // Load Spline viewer script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.24/build/spline-viewer.js';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script if component unmounts
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -25,16 +49,18 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative h-screen overflow-hidden bg-black">
-      {/* Static Image Background */}
+      {/* 3D Spline Model Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={carImage} 
-          alt="Hero Background" 
-          className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.4) contrast(1.1)' }}
+        <spline-viewer 
+          url="https://prod.spline.design/XVb4L3YwyNlw6ppz/scene.splinecode"
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 'none'
+          }}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
+        {/* Subtle overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
       </div>
 
       {/* Logo and Title */}
